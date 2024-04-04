@@ -2,7 +2,7 @@ local skynet = require "skynet"
 
 local function dft_loader(path, name, G)
 	local errlist = {}
-
+	name = string.gsub(name, "%d", "")
 	for pat in string.gmatch(path,"[^;]+") do
 		local filename = string.gsub(pat, "?", name)
 		local f , err = loadfile(filename, "bt", G)
